@@ -6,7 +6,7 @@ import db from "../../config/firebase.config";
 import AddEdit from "./add-edit";
 import { FaRegEdit, FaSort, FaTrash } from "react-icons/fa";
 
-const books = () => {
+const books: React.FC<any> = () => {
   const [books, setBooks] = useState<Book[]>([]);
   const [addEditModal, setAddEditModal] = useState<boolean>(false);
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);

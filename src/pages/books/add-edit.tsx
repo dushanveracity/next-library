@@ -19,7 +19,7 @@ const AddEdit: React.FC<Props> = ({ bookData, setModal }) => {
     if(bookData) {
       setBook(bookData);
     }
-  }, [])
+  }, [bookData])
 
   const onSave = (e: any) => {
     e.preventDefault();
