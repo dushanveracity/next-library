@@ -16,5 +16,6 @@ export default async function handler(
 
   await addDoc(collection(db, "books"), bookData);
 
+  //@ts-ignore
   res.status(200).json({ books: books });
 }

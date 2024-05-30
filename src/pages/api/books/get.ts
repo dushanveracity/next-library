@@ -12,9 +12,11 @@ export default async function handler(
   req: NextRequest,
   res: NextResponse<ResponseData>
 ) {
+  // @ts-ignore
   const { page, sort } = req.query;
 
   if (!page || !sort) {
+    // @ts-ignore
     res.status(400).json({ error: "Please provide page and sort parameters." });
   }
 
@@ -47,5 +49,6 @@ export default async function handler(
 
   books = books.slice((Number(page) - 1) * 8, Number(page) * 8);
 
+  // @ts-ignore
   res.status(200).json({ books: books });
 }
