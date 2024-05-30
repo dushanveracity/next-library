@@ -6,7 +6,7 @@ import db from "../../config/firebase.config";
 import AddEdit from "./add-edit";
 import { FaRegEdit, FaSort, FaTrash } from "react-icons/fa";
 
-const books: React.FC<any> = () => {
+const Books: React.FC<any> = () => {
   const [books, setBooks] = useState<Book[]>([]);
   const [addEditModal, setAddEditModal] = useState<boolean>(false);
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
@@ -54,7 +54,7 @@ const books: React.FC<any> = () => {
     if (!addEditModal) {
       setSelectedBook(null);
     }
-  }, [setAddEditModal]);
+  }, [setAddEditModal, addEditModal]);
 
   const openEditModal = (book: Book) => {
     setSelectedBook(book);
@@ -102,8 +102,8 @@ const books: React.FC<any> = () => {
             </tr>
           </thead>
           <tbody>
-            {books.map((book) => (
-              <tr className="border-b border-gray-400">
+            {books.map((book, idx) => (
+              <tr key={idx} className="border-b border-gray-400">
                 <td className="py-3 px-2">{book.title}</td>
                 <td className="py-3 px-2">{book.author}</td>
                 <td className="py-3 px-2 flex items-center gap-2">
@@ -146,4 +146,4 @@ const books: React.FC<any> = () => {
   );
 };
 
-export default books;
+export default Books;
