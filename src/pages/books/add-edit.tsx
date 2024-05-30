@@ -36,7 +36,7 @@ const AddEdit: React.FC<Props> = ({ bookData, setModal }) => {
   };
 
   const updateBook = async () => {
-    await setDoc(doc(db, "books", book?.id), book);
+    await setDoc(doc(db, "books", String(book?.id)), book);
   };
 
   return (
